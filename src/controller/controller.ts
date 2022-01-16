@@ -12,13 +12,13 @@ const cSwitch = function (req: Request, res: Response) {
   let command = req.params.command;
   switch (command) {
     case "ON":
-      client.emit(`iot/switch/${id}`,"ON");
+      client.publish(`iot/switch/${id}`,"ON");
       break;
     case "OFF":
-      client.emit(`iot/switch/${id}`,"OFF");
+      client.publish(`iot/switch/${id}`,"OFF");
       break;
     case "TOGGLE":
-      client.emit(`iot/switch/${id}`,"TOGGLE");
+      client.publish(`iot/switch/${id}`,"TOGGLE");
       break;
   }
   res.redirect("/done");
